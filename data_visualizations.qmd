@@ -1,0 +1,57 @@
+---
+title: "Data Science Project Visualizations"
+echo: false
+freeze: auto
+execute: 
+    warning: false 
+    message: false
+---
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(gplots)
+library(RColorBrewer)
+library(leaflet) 
+library(ggthemes) 
+library(htmltools)
+library(htmlwidgets)
+library(ggdist)
+library(knitr)
+library(kableExtra)
+library(plotly)
+library(shiny)
+library(shinythemes)
+library(plotly)
+library(shinydashboard)
+library(gbm)
+
+dt <- read.csv("~/Desktop/personal_website/datasetExample.csv")
+
+# Display the Pastel1 color palette
+#display.brewer.pal(n = 9, name = 'Pastel1')
+
+pastel_colors <- brewer.pal(n = 9, name = 'Pastel1')
+
+# Get an interpolated palette based on Pastel1
+#print(interpolated_pastel_colors <- colorRampPalette(brewer.pal(9, "Pastel1"))(10))
+
+# Create a box plot with different colors for each number of bedrooms
+ ggplot(dt %>% filter(Price <= 1000), aes(x = as.factor(Bedrooms), y = Price, fill = as.factor(Bedrooms))) +
+  geom_boxplot() +
+  scale_fill_brewer(palette = "Set3") +  # Set the color mapping
+  labs(title = "Price by Number of Bedrooms",
+       x = "Number of Bedrooms",
+       y = "Price") +
+  theme_minimal()+
+   theme(legend.position = "none",
+    plot.title = element_text(size = 20, face = "bold", hjust = 0.5),
+    axis.title.x = element_text(size = 16, face = "bold"),
+    axis.title.y = element_text(size = 16, face = "bold"),
+    axis.text.x = element_text(size = 14),
+    axis.text.y = element_text(size = 14),
+    legend.title = element_text(size = 16),
+    legend.text = element_text(size = 14))
+
+```
+

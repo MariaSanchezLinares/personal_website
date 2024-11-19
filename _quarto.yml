@@ -14,12 +14,14 @@ website:
             href: data_visualizations.qmd
           - text: CS OR Other
             href: other_highlights.qmd
+      - text: Example tab
+        href: example.qmd
     right:
       - icon: envelope
-        href: "mailto:your_email"
+        href: "mailto:msanche2@macalester.edu"
       - text: Linked
         icon: linkedin
-        href: "https://www.linkedin.com/your_linkedin_address"
+        href: "https://www.linkedin.com/in/maria-sanchez-linares-b6733b216"
 
 format:
   html:
